@@ -701,9 +701,28 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
 #define HOMING_FEEDRATE {50*60, 50*60, 4*60, 0}  // set the homing speeds (mm/min)
 
 // default settings
+/* gergap notes:
+ * NEMA17 takes 200 steps per rotation
+ * By using all three jumpers on the Polulo it uses 16 microsteps
+ * M6 threaded rod rise: 1mm/rotation (M8=1.25mm/rotation)
+ * Wade extruder: 11:39 teeth gears = 1:3.54
+ * See http://reprap.org/wiki/Mendel90_Build_Manual#Steps_Per_MM for more info
+ */
+#define STEPS 200
+#define MICROSTOPS 16
+#define ZRISE 1
+#define TEETH_BIG_GEAR 39.0
+#define TEETH_SMALL_GEAR 11.0
+#define HOB_DIAMETER 7.4
+#define CORRECTION 0.94 /* actual extrusion / requested extrusion */
+// computation part
+#define STEPS_PER_UNIT_X 80
+#define STEPS_PER_UNIT_Y 80
+#define STEPS_PER_UNIT_Z STEPS*MICROSTOPS/ZRISE
+#define STEPS_PER_UNIT_E ((STEPS*MICROSTOPS*TEETH_BIG_GEAR)/(TEETH_SMALL_GEAR*HOB_DIAMETER*3.142))/CORRECTION
 
-// using values documented here for now: http://reprap.org/wiki/Mendel90_Build_Manual#Steps_Per_MM
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {80,80,200*16/1.25,((200*16*39.0)/(11.0*7.4*3.142))/0.94}  // default steps per unit for Ultimaker
+// configuration part
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {STEPS_PER_UNIT_X, STEPS_PER_UNIT_Y, STEPS_PER_UNIT_Z, STEPS_PER_UNIT_E}  // default steps per unit for Ultimaker
 #define DEFAULT_MAX_FEEDRATE          {300, 300, 5, 25}    // (mm/sec)
 #define DEFAULT_MAX_ACCELERATION      {3000,3000,100,10000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for Skeinforge 40+, for older versions raise them a lot.
 
