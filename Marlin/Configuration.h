@@ -719,7 +719,7 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
 #define TEETH_BIG_GEAR 39.0
 #define TEETH_SMALL_GEAR 11.0
 #define HOB_DIAMETER 7.4
-#define CORRECTION 0.94 /* actual extrusion / requested extrusion */
+#define CORRECTION 0.89 /* actual extrusion / requested extrusion */
 // computation part
 #define STEPS_PER_UNIT_X 80
 #define STEPS_PER_UNIT_Y 80
