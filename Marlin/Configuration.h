@@ -491,14 +491,14 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
 // @section machine
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
-#define INVERT_X_DIR false
-#define INVERT_Y_DIR true
-#define INVERT_Z_DIR true
+#define INVERT_X_DIR true
+#define INVERT_Y_DIR false
+#define INVERT_Z_DIR false
 
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR false
+#define INVERT_E0_DIR true
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
@@ -525,7 +525,7 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
 #define Z_MIN_POS 0
 #define X_MAX_POS 200
 #define Y_MAX_POS 200
-#define Z_MAX_POS 180.6
+#define Z_MAX_POS 182.05
 
 //===========================================================================
 //========================= Filament Runout Sensor ==========================
@@ -719,7 +719,7 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
 #define TEETH_BIG_GEAR 39.0
 #define TEETH_SMALL_GEAR 11.0
 #define HOB_DIAMETER 7.4
-#define CORRECTION 0.89 /* actual extrusion / requested extrusion */
+#define CORRECTION 0.9 /* actual extrusion / requested extrusion */
 // computation part
 #define STEPS_PER_UNIT_X 80
 #define STEPS_PER_UNIT_Y 80
