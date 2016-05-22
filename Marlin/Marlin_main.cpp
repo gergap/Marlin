@@ -6476,6 +6476,17 @@ void process_next_command() {
 
       #endif
 
+      /* See http://www.3d-proto.de/index.php?p=project_bluetooth#BluetoothMon */
+      case 118: // Neuer M-Code für die Daten
+        SERIAL_PROTOCOL("E");
+        SERIAL_PROTOCOL_F(degHotend(0),1); //Temp des ersten Hotends
+        SERIAL_PROTOCOL(","); //Trennzeichen
+        SERIAL_PROTOCOL_F(current_position[Z_AXIS],1); //Aktuell Z-Achse
+        SERIAL_PROTOCOL(","); //Trennzeichen
+        SERIAL_PROTOCOL_F(degBed(),1); //Temp des Heizbetts
+        SERIAL_PROTOCOL("\n"); //Ende der Daten
+        break;
+
       case 140: // M140: Set bed temp
         gcode_M140();
         break;
