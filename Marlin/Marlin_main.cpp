@@ -1187,6 +1187,9 @@ XYZ_CONSTS_FROM_CONFIG(signed char, home_dir, HOME_DIR);
   void print_xyz(const char* prefix, const float xyz[]) {
     print_xyz(prefix, xyz[X_AXIS], xyz[Y_AXIS], xyz[Z_AXIS]);
   }
+  void print_xyz(const char* prefix, const vector_3 &pos) {
+    print_xyz(prefix, pos.x, pos.y, pos.z);
+  }
   #define DEBUG_POS(PREFIX,VAR) do{ SERIAL_ECHOPGM(PREFIX); print_xyz(" > " STRINGIFY(VAR), VAR); }while(0)
 #endif
 

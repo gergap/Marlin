@@ -216,7 +216,8 @@
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
-#define TEMP_SENSOR_BED 71
+#define TEMP_SENSOR_BED 9
+#define BOGUS_TEMPERATURE_FAILSAFE_OVERRIDE
 
 // This makes temp sensor 1 a redundant sensor for sensor 0. If the temperatures difference between these sensors is to high the print will be aborted.
 //#define TEMP_SENSOR_1_AS_REDUNDANT
@@ -716,7 +717,7 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
 #define STEPS 200
 #define MICROSTOPS 16
 #define ZRISE 1
-#define TEETH_BIG_GEAR 39.0
+#define TEETH_BIG_GEAR 43.0
 #define TEETH_SMALL_GEAR 11.0
 #define HOB_DIAMETER 7.4
 #define CORRECTION 1.0 /* actual extrusion / requested extrusion */
@@ -954,7 +955,10 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
 // leaving it undefined or defining as 0 will disable the servo subsystem
 // If unsure, leave commented / disabled
 //
-//#define NUM_SERVOS 3 // Servo index starts with 0 for M280 command
+#define NUM_SERVOS 1 // Servo index starts with 0 for M280 command
+
+// Use Server0 as LED STRIP Light Control using PWM
+#define LED_LIGHT 1
 
 // Servo Endstops
 //
